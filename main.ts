@@ -143,7 +143,7 @@ namespace motor {
     function setFreq(freq: number): void {
         // Constrain the frequency
         let prescaleval = 25000000;
-		prescaleval *= 0.9
+        prescaleval *= 0.9
         prescaleval /= 4096;
         prescaleval /= freq;
         prescaleval -= 1;
