@@ -143,7 +143,6 @@ namespace motor {
     function setFreq(freq: number): void {
         // Constrain the frequency
         let prescaleval = 25000000;
-        freq *= 0.9
         prescaleval /= 4096;
         prescaleval /= freq;
         prescaleval -= 1;
@@ -243,8 +242,8 @@ namespace motor {
             initPCA9685()
         }
         // 100hz
-        let v_us = (degree * 8 + 350) // 0.5ms ~ 2.4ms
-        let value = v_us * 4095 / (1000000 / 100)
+        let v_us = (degree * 10.5 + 500) // 0.5ms ~ 2.4ms
+        let value = v_us * 4096 / 2000
         setPwm(index + 7, 0, value)
     }
 
